@@ -1,0 +1,74 @@
+@import url(styles.css);
+
+
+/*CONTENEDOR GENERAL*/
+.tab-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* CONTENEDOR DE TABS */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.tabs > button{
+    max-width: 200px;
+    text-transform: uppercase;
+}
+/* CADA TAB */
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-fourth);
+}
+/* TAB ACTIVO */
+.tab.active {
+  background-color: var(--color-seventh);
+  color: var(--color-fifth);
+}
+
+/* FORMULARIO PARA INGRESAR */
+main > form{
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+main > form > div{
+    width: 100%;
+    margin: 1em auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+main > form > div > *{
+    width: 30%;
+    margin: 0 .5em;
+    text-align: left;
+}
+main > form > div > input,
+main > form > div > select{
+    background-color:  var(--color-fifth);
+    border: 1px solid var(--color-fourth);
+    border-radius: 2px;
+}
+main > form > input{
+    width: 209px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/*ADAPTACIONES*/
+@media screen and (min-width:720px){
+
+}

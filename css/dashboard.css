@@ -1,0 +1,81 @@
+@import url(styles.css);
+
+
+/* CONTENIDO GENERAL */
+main{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: repeat(4, 80px);
+    grid-gap: 2.5em;
+}
+/* DINERO DISPONIBLE */
+main > div:nth-child(1){
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+/* DINERO PLAZO FIJO */
+main > div:nth-child(2){
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+/* INGRESOS DEL MES ACTUAL */
+main > div:nth-child(3){
+    grid-column: 1/3;
+    grid-row: 3/4;
+}
+/* EGRESOS DEL MES ACTUAL*/
+main > div:nth-child(4){
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+/* TODAS LAS SECCIONES */
+main  > div{
+    width: 100%;
+    max-width: 300px;
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 3px 5px 11px 2px var(--color-fourth);
+    border: 1px solid var(--color-fourth);
+
+    background-color: var(--color-seventh);
+    color: var(--color-fifth);
+}
+main > div > p{
+    font-size: 2em;
+}
+main > div > p::before{
+    content: '$';
+}
+
+
+/*ADAPTACIONES*/
+@media screen and (min-width:720px){
+    /* CONTENIDO GENERAL */
+    main{
+        grid-template-columns: repeat(4,auto);
+        grid-template-rows: repeat(2, 80px);
+    }
+    /* DINERO DISPONIBLE */
+    main > div:nth-child(1){
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    /* DINERO PLAZO FIJO */
+    main > div:nth-child(2){
+        grid-column: 3/5;
+        grid-row: 1/2;
+    }
+    /* INGRESOS DEL MES ACTUAL */
+    main > div:nth-child(3){
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    /* EGRESOS DEL MES ACTUAL*/
+    main > div:nth-child(4){
+        grid-column: 3/5;
+        grid-row: 2/3;
+    }
+}
