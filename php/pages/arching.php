@@ -7,17 +7,17 @@
 <html lang="es">
 <head>
     <!-- META -->
-    <?php include("../../layout/meta.php"); ?>
+    <?php include("layout/meta.php"); ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/arching.css">
+    <link rel="stylesheet" href="../../assets/css/arching.css">
 
     <!-- ICONOS -->
-    <?php include("../../layout/iconos.php"); ?>
+    <?php include("layout/iconos.php"); ?>
 </head>
 <body>
     <!-- MENU DE NAVEGACION -->
-    <?php include("../../layout/nav.php"); ?>
+    <?php include("layout/nav.php"); ?>
 
     <!-- TITULO -->
     <div class="title">
@@ -95,8 +95,8 @@
     </main>
 
     <!-- FOOTER -->
-    <?php include("../../layout/footer.php"); ?>
+    <?php include("layout/footer.php"); ?>
 
-    <script src="../../js/nav.js"></script>
+    <script src="../../assets/js/nav.js"></script>
 </body>
 </html>

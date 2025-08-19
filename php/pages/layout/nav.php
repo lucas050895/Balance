@@ -1,3 +1,10 @@
+<?php
+    // Evita acceso directo por URL
+    if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
+        exit('Acceso denegado');
+    }
+?>
+
 <nav>
     <h1>Balance</h1>
 

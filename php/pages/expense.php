@@ -7,16 +7,16 @@
 <html lang="es">
 <head>
   <!-- META -->
-  <?php include("../../layout/meta.php"); ?>
+  <?php include("layout/meta.php"); ?>
 
-  <link rel="stylesheet" href="../../css/income_expense.css">
+  <link rel="stylesheet" href="../../assets/css/income_expense.css">
 
   <!-- ICONOS -->
-  <?php include("../../layout/iconos.php"); ?>
+  <?php include("layout/iconos.php"); ?>
 </head>
 <body>
   <!-- MENU DE NAVEGACION -->
-  <?php include("../../layout/nav.php"); ?>
+  <?php include("layout/nav.php"); ?>
 
   <!-- TITULO -->
   <section class="title">
@@ -72,7 +72,7 @@
   </div>
 
   <!-- FOOTER -->
-  <?php include("../../layout/footer.php"); ?>
+  <?php include("layout/footer.php"); ?>
 
   <!-- SCRIPT PARA EL AUTOCOMPLETADO DE SUBCATEGORIA -->
   <script>
@@ -104,8 +104,8 @@
     }
   </script>
 
-  <script src="../../js/nav.js"></script>
-  <script src="../../js/tabs.js"></script>
+  <script src="../../assets/js/nav.js"></script>
+  <script src="../../assets/js/tabs.js"></script>
 
 </body>
 </html>

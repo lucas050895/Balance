@@ -1,3 +1,9 @@
+<?php
+    // Evita acceso directo por URL
+    if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
+        exit('Acceso denegado');
+    }
+?>
     <!-- BOXICONS  -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     

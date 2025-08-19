@@ -5,12 +5,13 @@
 <html lang="es">
 <head>
     <!-- META -->
-    <?php include("layout/meta.php"); ?>
+    <?php include("php/pages/layout/meta.php"); ?>
 
-    <link rel="stylesheet" href="css/index.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/index.css">
 
     <!-- ICONOS -->
-    <?php include("layout/iconos.php"); ?>
+    <?php include("php/pages/layout/iconos.php"); ?>
 </head>
 <body>
     <main>
@@ -29,6 +30,8 @@
             </fieldset>
             <input type="submit" id="entrar" name="entrar" value="Entrar"> 
         </form>
+
     </main>
+    <?php include("php/pages/layout/footer.php"); ?>
 </body>
 </html>
