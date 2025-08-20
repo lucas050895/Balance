@@ -1,6 +1,5 @@
 @import url(styles.css);
 
-
 /*CONTENEDOR GENERAL*/
 .tab-wrapper {
     width: 100%;
@@ -36,39 +35,70 @@
   color: var(--color-fifth);
 }
 
+
 /* FORMULARIO PARA INGRESAR */
-main > form{
+#ingresar{
+    padding: 2em 0;
+}
+#ingresar > form{
     width: 90%;
     max-width: 500px;
     margin: auto;
     padding: 20px;
     text-align: center;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
-main > form > div{
+#ingresar > form > div{
     width: 100%;
     margin: 1em auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-main > form > div > *{
+#ingresar > form > div > *{
     width: 30%;
     margin: 0 .5em;
     text-align: left;
 }
-main > form > div > input,
-main > form > div > select{
-    background-color:  var(--color-fifth);
+#ingresar > form > div > input,
+#ingresar > form > div > select{
+    width: 45%;
+    padding: 2px;
+    text-align: center;
     border: 1px solid var(--color-fourth);
     border-radius: 2px;
+    background-color:  var(--color-fifth);
 }
-main > form > input{
-    width: 209px;
+#ingresar > form > div > input[type="number"]{
+    padding: 2px 5px;
+}
+#ingresar > form > input{
+    width: 50%;
     height: 40px;
     cursor: pointer;
 }
 
-/*ADAPTACIONES*/
-@media screen and (min-width:720px){
 
+/* LISTA DE DATOS INGRESADOS */
+#ver{
+    margin-bottom: 2em;
+}
+#ver > table{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+#ver > table > thead > tr{
+    height: 2em;
+    background: var(--color-fourth);
+    color: var(--color-fifth);
+}
+#ver > table > tbody > tr > td {
+    padding: .5em;
+    border-bottom: 1px solid var(--color-fourth);
+}
+#ver > table > tbody > tr > td:nth-of-type(3)::before{
+    content: '$ ';
 }

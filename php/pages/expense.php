@@ -35,12 +35,12 @@
     </div>
 
     <!-- CONTENEDOR DE INGRESAR -->
-    <main class="tab-content" id="ingresar">
+    <main class="tab-content" id="ingresar" >
       <form action="../actions/insert_expense.php" method="POST">
         <!-- FECHA -->
         <div>
           <label for="fecha">Fecha</label>
-          <input type="date" name="fecha" id="fecha" required>
+          <input type="date" name="fecha" id="fecha" required value="<?= date('Y-m-d'); ?>">
         </div>
 
         <!-- CATEGORIA -->
@@ -66,13 +66,45 @@
     </main>
 
     <!-- CONTENEDOR DE LA LISTA -->
-    <main class="tab-content" id="ver" style="display: none;">
+    <main class="tab-content" id="ver" style="display: none">
+      <?php
+          $query = "SELECT egresos.id,
+                          egresos_categoria.descripcion AS categoria,
+                          egresos_subcategoria.descripcion AS subcategoria,
+                          egresos.importe
+                    FROM egresos
+                    JOIN egresos_categoria ON egresos.categoria = egresos_categoria.id
+                    JOIN egresos_subcategoria ON egresos.subcategoria = egresos_subcategoria.id
+                    WHERE MONTH(fecha) = 8 
+                    ORDER BY egresos.id DESC";
 
+      $resultado = mysqli_query($conexion, $query); ?>
+
+      <table cellspacing="0">
+        <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>SubCategoria</th>
+              <th>Importe</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php while ($fila = $resultado->fetch_assoc()): ?>
+              <tr>
+                <td><?= $fila['categoria'] ?></td>
+                <td><?= $fila['subcategoria'] ?></td>
+                <td><?= number_format($fila['importe'], 2, ',', '.') ?></td>    
+              </tr>
+            <?php endwhile ?>
+        </tbody>
+      </table>
     </main>
   </div>
 
   <!-- FOOTER -->
   <?php include("layout/footer.php"); ?>
+  
 
   <!-- SCRIPT PARA EL AUTOCOMPLETADO DE SUBCATEGORIA -->
   <script>

@@ -41,7 +41,7 @@
         <!-- FECHA -->
         <div>
           <label for="fecha">Fecha</label>
-          <input type="date" name="fecha" id="fecha" required>
+          <input type="date" name="fecha" id="fecha" required value="<?= date('Y-m-d'); ?>">
         </div>
 
         <!-- CATEGORIA -->
@@ -69,8 +69,39 @@
     </main>
 
     <!-- CONTENEDOR DE LA LISTA -->
-    <main class="tab-content" id="ver" style="display: none;">
+    <main class="tab-content" id="ver" style="display: none">
+      <?php
+          $query = "SELECT ingresos.id,
+                          ingresos_categoria.descripcion AS categoria,
+                          ingresos_subcategoria.descripcion AS subcategoria,
+                          ingresos.importe
+                    FROM ingresos
+                    JOIN ingresos_categoria ON ingresos.categoria = ingresos_categoria.id
+                    JOIN ingresos_subcategoria ON ingresos.subcategoria = ingresos_subcategoria.id
+                    WHERE MONTH(fecha) = 8 
+                    ORDER BY ingresos.id DESC";
 
+      $resultado = mysqli_query($conexion, $query); ?>
+
+      <table cellspacing="0">
+        <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>SubCategoria</th>
+              <th>Importe</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php while ($fila = $resultado->fetch_assoc()): ?>
+              <tr>
+                <td><?= $fila['categoria'] ?></td>
+                <td><?= $fila['subcategoria'] ?></td>
+                <td><?= number_format($fila['importe'], 2, ',', '.') ?></td>    
+              </tr>
+            <?php endwhile ?>
+        </tbody>
+      </table>
     </main>
   </div>
 
