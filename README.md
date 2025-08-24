@@ -24,6 +24,8 @@ Este sistema facilita el control financiero mediante un panel interactivo que mu
 - **Servidor web:** Apache (XAMPP)
 - **Frontend:** HTML5, CSS3, JavaScript
 
+---
+
 
 👨‍💻 Autor
 
