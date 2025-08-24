@@ -29,5 +29,5 @@ Este sistema facilita el control financiero mediante un panel interactivo que mu
 
 👨‍💻 Autor
 
-Proyecto desarrollado por Lucas Conde
-💼 Enfoque en desarrollo web a medida con PHP y MySQL
+- Proyecto desarrollado por Lucas Conde
+- Enfoque en desarrollo web a medida con PHP y MySQL
