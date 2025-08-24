@@ -18,9 +18,9 @@ Este sistema facilita el control financiero mediante un panel interactivo que mu
 
 ## 📋 Tecnologías utilizadas
 
-- **Lenguaje backend:** PHP 7+
+- **Lenguaje backend:** PHP 8
 - **Base de datos:** MySQL / MariaDB
-- **Conexión:** Extensión `MySQLi` o `PDO` (según configuración en `conexion.php`)
+- **Conexión:** Extensión `MySQLi`
 - **Servidor web:** Apache (XAMPP)
 - **Frontend:** HTML5, CSS3, JavaScript
 
