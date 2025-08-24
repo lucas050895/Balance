@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+
+
 :root{
   font-size: 14px;
 
@@ -16,8 +18,14 @@
   --color-seventh: #406cc4;
 }
 
+
+
 body{
   background-color: var(--color-first);
+}
+
+main{
+  margin: 0 auto 5em;
 }
 
 /* TITULO */
@@ -31,12 +39,15 @@ body{
   border-bottom: 1px solid var(--color-fourth);
 }
 
+
+
 /* CONTENEDOR GENERAL */
 main{
   width: 100%;
   max-width: 920px;
   margin: auto;
 }
+
 
 
 /*MENU DE NAVEGACION*/
@@ -113,6 +124,43 @@ nav.active {
 }
 
 
+
+/*CONTENEDOR GENERAL*/
+.tab-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+/* CONTENEDOR DE TABS */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tabs > button{
+  max-width: 200px;
+  text-transform: uppercase;
+}
+/* CADA TAB */
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-fourth);
+}
+/* TAB ACTIVO */
+.tab.active {
+  background-color: var(--color-seventh);
+  color: var(--color-fifth);
+}
+
+
+
 /*FOOTER*/
 footer{
   width: 100%;
@@ -120,7 +168,6 @@ footer{
   position: fixed;
   bottom: 0;
   left: 0;
-  margin-top: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,6 +184,6 @@ footer *{
 /*ADAPTACIONES*/
 @media screen and (min-width:720px){
   :root{
-      font-size: 18px;
+    font-size: 18px;
   }
 }

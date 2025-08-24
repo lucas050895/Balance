@@ -10,7 +10,7 @@
     <?php include("layout/meta.php"); ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/css/arching.css">
+    <link rel="stylesheet" href="../../assets/css/arching.css?v=<?php echo filemtime('../../assets/css/arching.css'); ?>">
 
     <!-- ICONOS -->
     <?php include("layout/iconos.php"); ?>
@@ -78,20 +78,20 @@
                 } else {
                     $mostrar = '-';
                     $clase = '';
-                }
-                ?>
-                <div class="mes <?= $clase ?>">
-                    <h2><?= $meses[$i-1] ?></h2>
-                    <p>
-                       <?= $mostrar ?>
-                    </p>
-                </div>
-                <?php
+                } 
+                
+                if ($diferencia !== null): ?>
+                    <a href="arching-mes.php?mes=<?= $meses[$i-1] ?>&año=<?= $año_seleccionado ?>" class="mes <?= $clase ?>">
+                        <h2><?= $meses[$i-1] ?></h2>
+                        <p><?= $mostrar ?></p>
+                    </a>
+                <?php else: ?>
+                    <a href="#" class="mes deshabilitado">
+                        <h2><?= $meses[$i-1] ?></h2>
+                        <p>-</p>
+                    </a>
+                <?php endif; 
             } ?>
-
-
-        
-
     </main>
 
     <!-- FOOTER -->

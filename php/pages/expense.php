@@ -9,7 +9,8 @@
   <!-- META -->
   <?php include("layout/meta.php"); ?>
 
-  <link rel="stylesheet" href="../../assets/css/income_expense.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../assets/css/income_expense.css?v=<?php echo filemtime('../../assets/css/income_expense.css'); ?>">
 
   <!-- ICONOS -->
   <?php include("layout/iconos.php"); ?>
@@ -105,7 +106,6 @@
   <!-- FOOTER -->
   <?php include("layout/footer.php"); ?>
   
-
   <!-- SCRIPT PARA EL AUTOCOMPLETADO DE SUBCATEGORIA -->
   <script>
     const ruta = '../actions/';
@@ -136,7 +136,10 @@
     }
   </script>
 
+  <!-- NAV -->
   <script src="../../assets/js/nav.js"></script>
+  
+  <!-- TABS -->
   <script src="../../assets/js/tabs.js"></script>
 
 </body>

@@ -10,8 +10,7 @@
     <?php include("layout/meta.php"); ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
-    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css?v=<?php echo filemtime('../../assets/css/dashboard.css'); ?>">
 
     <!-- ICONOS -->
     <?php include("layout/iconos.php"); ?>
@@ -87,7 +86,8 @@
 
     <!-- FOOTER -->
     <?php include("layout/footer.php"); ?>
-
+    
+    <!-- NAV -->
     <script src="../../assets/js/nav.js"></script>
 </body>
 </html>
