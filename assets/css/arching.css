@@ -54,3 +54,14 @@ main > .mes > p{
     pointer-events: none;
     cursor: default;
 }
+
+#egresos{
+    margin: 0 auto 2em;
+}
+.grafico {
+  width: 100%;
+  max-width: 900px;
+  height: max-content;
+  margin: auto;
+  display: block;
+}

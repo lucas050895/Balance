@@ -91,9 +91,8 @@
                 }
                 
                 if (!empty($data_ing)): ?>
-                    <div class="grafic-container">
-                        <canvas id="ingresosChart"></canvas>
-                    </div>
+
+                    <canvas id="ingresosChart" class="grafico"></canvas>
 
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
@@ -149,36 +148,11 @@
                 }
                 
                 
-                if (!empty($data)): ?>
-                    <div class="grafic-container">
-                        <canvas id="egresosChart"></canvas>
-                    </div>
-
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        const ctxEgresos = document.getElementById('egresosChart').getContext('2d');
-                        new Chart(ctxEgresos, {
-                            type: 'pie',
-                            data: {
-                                labels: <?= json_encode($labels) ?>,
-                                datasets: [{
-                                    data: <?= json_encode($data) ?>,
-                                    backgroundColor: <?= json_encode($colors) ?>
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                plugins: {
-                                    legend: {
-                                        position: 'bottom'
-                                    }
-                                }
-                            }
-                        });
-                    </script>
-                <?php else: ?>
-                    <p>No hay egresos en este mes.</p>
-                <?php endif; ?>
+            if (!empty($data)): ?>
+                <canvas id="egresosChart" class="grafico"></canvas>
+            <?php else: ?>
+                <p>No hay egresos en este mes.</p>
+            <?php endif; ?>
         </main>
     </div>
 
@@ -218,6 +192,48 @@
     <script src="../../assets/js/nav.js"></script>
 
     <!-- TABS -->
-    <script src="../../assets/js/tabs.js"></script>
+    <script>
+        let egresosChartCreado = false;
+
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            const selected = tab.getAttribute("data-tab");
+            contents.forEach((c) => {
+                c.style.display = c.id === selected ? "block" : "none";
+            });
+
+            // Si se selecciona la pestaña de egresos y aún no se creó el gráfico
+            if (selected === "egresos" && !egresosChartCreado) {
+                const ctxEgresos = document.getElementById('egresosChart').getContext('2d');
+                new Chart(ctxEgresos, {
+                type: 'pie',
+                data: {
+                    labels: <?= json_encode($labels) ?>,
+                    datasets: [{
+                    data: <?= json_encode($data) ?>,
+                    backgroundColor: <?= json_encode($colors) ?>
+                    }]
+                },
+                options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                    position: 'bottom'
+                    }
+                }
+                }
+                });
+                egresosChartCreado = true;
+            }
+            });
+        });
+    </script>
 </body>
 </html>

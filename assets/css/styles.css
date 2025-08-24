@@ -24,9 +24,7 @@ body{
   background-color: var(--color-first);
 }
 
-main{
-  margin: 0 auto 5em;
-}
+
 
 /* TITULO */
 .title{
