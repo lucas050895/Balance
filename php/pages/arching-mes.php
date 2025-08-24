@@ -39,6 +39,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../assets/css/arching.css?v=<?php echo filemtime('../../assets/css/arching.css'); ?>">
+    <link rel="stylesheet" href="../../assets/css/styles.css?v=<?php echo filemtime('../../assets/css/styles.css'); ?>">
 
     <!-- ICONOS -->
     <?php include("layout/iconos.php"); ?>

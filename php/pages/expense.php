@@ -11,6 +11,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../../assets/css/income_expense.css?v=<?php echo filemtime('../../assets/css/income_expense.css'); ?>">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=<?php echo filemtime('../../assets/css/styles.css'); ?>">
 
   <!-- ICONOS -->
   <?php include("layout/iconos.php"); ?>
