@@ -8,7 +8,8 @@
     <?php include("php/pages/layout/meta.php"); ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css?v=<?php echo filemtime('assets/css/index.css'); ?>">
+    <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo filemtime('assets/css/styles.css'); ?>">
 
     <!-- ICONOS -->
     <?php include("php/pages/layout/iconos.php"); ?>
@@ -19,7 +20,7 @@
             <legend>iniciar sesión</legend>
             <div>
                 <label for="usuario"><i class="fas fa-user"></i></label>
-                <input type="text" id="usuario" name="user" required placeholder="Usuario">
+                <input type="mail" id="usuario" name="user" required placeholder="Usuario">
             </div>
 
             <div>

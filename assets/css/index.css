@@ -44,7 +44,6 @@ form > fieldset > div > input{
 }
 form > fieldset > div > input{
     width: 120px;
-    text-transform: capitalize;
 }
 form > fieldset > input{
     width: 150px;
