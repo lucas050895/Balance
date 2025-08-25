@@ -20,7 +20,7 @@
             <legend>iniciar sesión</legend>
             <div>
                 <label for="usuario"><i class="fas fa-user"></i></label>
-                <input type="mail" id="usuario" name="user" required placeholder="Usuario">
+                <input type="email" id="usuario" name="user" required placeholder="Usuario">
             </div>
 
             <div>
