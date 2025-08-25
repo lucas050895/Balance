@@ -1,29 +1,27 @@
 <?php
-  // Inicia la sesión
   session_start();
 
-  // Verifica si el usuario está logueado.
   if (!isset($_SESSION['usuario'])) {
-      // Si no está logueado, redirige a la página de inicio de sesión.
-      header("Location: ../../index.php");
-      // exit();
-  }else {
-      //sino, calculamos el tiempo transcurrido
-      $fechaGuardada = $_SESSION["ultimoAcceso"];
-
-      $ahora = date("Y-n-j H:i:s");
-      
-      $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
-
-      //comparamos el tiempo transcurrido
-      if($tiempo_transcurrido >= 1200) {
-        //si pasaron 10 minutos o más
-        session_destroy(); // destruyo la sesión
-        header("Location: ../../index.php"); //envío al usuario a la pag. de autenticación
-        //sino, actualizo la fecha de la sesión
-      }else {
-        $_SESSION["ultimoAcceso"] = $ahora;
-      }
+      header("Location: ../../index.php?error=3");
+      exit();
   }
 
-  $arregloUsuario = $_SESSION['usuario']; 
+  if (!isset($_SESSION["ultimoAcceso"])) {
+      $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
+  }
+
+  $ahora = time();
+  $ultimoAcceso = strtotime($_SESSION["ultimoAcceso"]);
+  $tiempo_transcurrido = $ahora - $ultimoAcceso;
+
+  if ($tiempo_transcurrido >= 300) {
+      session_destroy();
+      header("Location: ../../index.php?error=2");
+      exit();
+  } else {
+      $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
+  }
+
+  $arregloUsuario = $_SESSION['usuario'];
+
+  

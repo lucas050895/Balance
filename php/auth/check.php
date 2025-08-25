@@ -32,10 +32,7 @@
 
             header("Location: http://lucasconde.ddns.net/Balance/php/pages/dashboard.php");
         } else {
-            echo "<script>
-                    alert('Usuario o password incorrectos.');
-                    window.location.href = 'http://lucasconde.ddns.net/Balance';
-                </script>";
+            header("Location: ../../index.php?error=1");
         }
     }
 ?>
