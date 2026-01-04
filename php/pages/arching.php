@@ -56,10 +56,21 @@
 
         <!-- MOSTRAR TODOS LOS MESES -->
         <?php
-            $meses = [ 'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic' ];
+            $meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 
-            $saldo_acumulado = 0;
+            // CALCULAR EL SALDO INICIAL
+            $fecha_limite_anterior = "$año_seleccionado-01-01";
 
+            $query_inicial = "SELECT 
+                (SELECT COALESCE(SUM(importe), 0) FROM ingresos WHERE fecha < '$fecha_limite_anterior') - 
+                (SELECT COALESCE(SUM(importe), 0) FROM egresos WHERE fecha < '$fecha_limite_anterior') AS saldo_inicial";
+
+            $res_inicial = mysqli_query($conexion, $query_inicial);
+            $row_inicial = mysqli_fetch_array($res_inicial);
+
+            $saldo_acumulado = $row_inicial['saldo_inicial'] ?? 0;
+
+            // CICLO MENSUAL
             for ($i = 1; $i <= 12; $i++) {
                 $inicio = "$año_seleccionado-" . str_pad($i, 2, '0', STR_PAD_LEFT) . "-01";
                 $fin = date("Y-m-t", strtotime($inicio));
@@ -67,11 +78,12 @@
                 $query = "SELECT
                             (SELECT SUM(importe) FROM ingresos WHERE fecha BETWEEN '$inicio' AND '$fin') -
                             (SELECT SUM(importe) FROM egresos WHERE fecha BETWEEN '$inicio' AND '$fin') AS diferencia";
+                
                 $resultado = mysqli_query($conexion, $query);
                 $row = mysqli_fetch_array($resultado);
                 $diferencia = $row['diferencia'];
 
-                // Solo actualiza el acumulado si hay movimientos
+
                 if ($diferencia !== null) {
                     $saldo_acumulado += $diferencia;
                     $mostrar = '$ ' . number_format($saldo_acumulado, 2, ',', '.');
@@ -79,8 +91,8 @@
                 } else {
                     $mostrar = '-';
                     $clase = '';
-                } 
-                
+                }
+
                 if ($diferencia !== null): ?>
                     <a href="arching-mes.php?mes=<?= $meses[$i-1] ?>&año=<?= $año_seleccionado ?>" class="mes <?= $clase ?>">
                         <h2><?= $meses[$i-1] ?></h2>
@@ -92,7 +104,8 @@
                         <p>-</p>
                     </a>
                 <?php endif; 
-            } ?>
+            }
+        ?>
     </main>
 
     <!-- FOOTER -->

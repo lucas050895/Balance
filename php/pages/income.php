@@ -73,6 +73,8 @@
     <!-- CONTENEDOR DE LA LISTA -->
     <main class="tab-content" id="ver" style="display: none">
       <?php
+          $mes = date('n');
+
           $query = "SELECT ingresos.id,
                           ingresos_categoria.descripcion AS categoria,
                           ingresos_subcategoria.descripcion AS subcategoria,
@@ -80,7 +82,7 @@
                     FROM ingresos
                     JOIN ingresos_categoria ON ingresos.categoria = ingresos_categoria.id
                     JOIN ingresos_subcategoria ON ingresos.subcategoria = ingresos_subcategoria.id
-                    WHERE MONTH(fecha) = 8 
+                    WHERE MONTH(fecha) = $mes
                     ORDER BY ingresos.id DESC";
 
       $resultado = mysqli_query($conexion, $query); ?>

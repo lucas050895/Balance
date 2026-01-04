@@ -46,7 +46,33 @@
         <!-- DINERO EN PLAZO FIJO -->
         <div>
             <h2>Dinero en Plazo Fijo</h2>
-            <p>0</p>
+            <?php if ($conexion):
+                    // OBTENER PLAZO FIJO
+                    $plazo = "SELECT
+                                COALESCE((
+                                    SELECT SUM(egresos.importe)
+                                        FROM egresos
+                                        JOIN egresos_categoria ON egresos.categoria = egresos_categoria.id
+                                        JOIN egresos_subcategoria ON egresos.subcategoria = egresos_subcategoria.id
+                                    WHERE egresos_subcategoria.descripcion LIKE '%Plazo%'
+                                    AND egresos.fecha >= '2025-09-01'
+                                ), 0)
+                                -
+                                COALESCE((
+                                    SELECT SUM(ingresos.importe)
+                                            FROM ingresos
+                                            JOIN ingresos_categoria ON ingresos.categoria = ingresos_categoria.id
+                                            JOIN ingresos_subcategoria ON ingresos.subcategoria = ingresos_subcategoria.id
+                                        WHERE ingresos_subcategoria.descripcion LIKE '%Plazo%'
+                                        AND ingresos.fecha >= '2025-09-01'
+                                ), 0) AS resultado";
+                                
+                    $plazo = mysqli_query($conexion, $plazo);
+            endif;
+
+            while($row = mysqli_fetch_assoc($plazo)) { ?>
+                <p><?php echo number_format($row['resultado'], 2, ',', '.') ?></p>
+            <?php } ?>
         </div>
 
         <!-- INGRESOS DEL MES ACTUAL -->

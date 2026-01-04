@@ -70,6 +70,8 @@
     <!-- CONTENEDOR DE LA LISTA -->
     <main class="tab-content" id="ver" style="display: none">
       <?php
+          $mes = date('n');
+
           $query = "SELECT egresos.id,
                           egresos_categoria.descripcion AS categoria,
                           egresos_subcategoria.descripcion AS subcategoria,
@@ -77,7 +79,7 @@
                     FROM egresos
                     JOIN egresos_categoria ON egresos.categoria = egresos_categoria.id
                     JOIN egresos_subcategoria ON egresos.subcategoria = egresos_subcategoria.id
-                    WHERE MONTH(fecha) = 8 
+                    WHERE MONTH(fecha) = $mes 
                     ORDER BY egresos.id DESC";
 
       $resultado = mysqli_query($conexion, $query); ?>
